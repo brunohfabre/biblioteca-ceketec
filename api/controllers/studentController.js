@@ -3,10 +3,7 @@ const Student = require('../models/student');
 const studentController = {};
 
 studentController.get = function(req, res) {
-    Student.find({}).populate({
-        path: '_room',
-        select: 'name _unit'
-    }).then(function(students) {
+    Student.find({}).then(function(students) {
         res.send(students);
     }).catch(function(err) {
         res.send(err);

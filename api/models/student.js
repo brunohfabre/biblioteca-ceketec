@@ -9,4 +9,14 @@ const studentSchema = new Schema({
     createdAt: { type: Date, required: true, default: Date.now() },
 });
 
+const autoPopulateRoom = function(next) {
+    this.populate({
+        path: '_room',
+        select: 'name _unit'
+    });
+    next();
+};
+
+studentSchema.pre('find', autoPopulateRoom);
+
 module.exports = mongoose.model('Student', studentSchema);
