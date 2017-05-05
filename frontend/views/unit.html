@@ -1,0 +1,44 @@
+<div class="container">
+	<div class="row">
+		<div class="col-md-12">
+			<h3>page unit</h3>
+			<hr>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-md-12">
+			<form class="form-horizontal">
+				<div class="form-group">
+					<div class="col-sm-6">
+						<input type="text" class="form-control" ng-model="unit.name" placeholder="name">
+					</div>
+				</div>
+				<div class="form-group">
+					<div class="col-sm-6" align="right">
+						<button class="btn btn-primary" ng-click="addUnit(unit)">adicionar</button>
+					</div>
+				</div>
+			</form>
+		</div>
+	</div>
+	{{unit}}
+	<div class="row">
+		<div class="col-md-12">
+			<hr>
+			<table class="table table-striped">
+				<thead>
+					<tr>
+						<th>name</th>
+						<th>action</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr ng-repeat="unit in units">
+						<td><a ui-sref="room({unitId: unit._id})">{{unit}}</a></td>
+						<td><button ng-click="deleteUnit(unit)" class="btn btn-danger">apagar</button> <a ui-sref="room({unitId: unit._id})" class="btn btn-primary">adicionar salas</a></td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</div>
+</div>
