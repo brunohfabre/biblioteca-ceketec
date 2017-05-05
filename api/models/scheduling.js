@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
 const schedulingSchema = new Schema({
-    _students: [{ type: Schema.ObjectId, ref: 'Student' }],
+    _students: [{ type: Schema.ObjectId, ref: 'Student', required: true }],
     date: { type: String, required: true },
     createdAt: { type: Date, required: true, default: Date.now() },
 });

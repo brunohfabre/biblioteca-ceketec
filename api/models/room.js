@@ -3,7 +3,7 @@ const Schema = mongoose.Schema;
 
 const roomSchema = new Schema({
     name: { type: String, required: true },
-    _unit: { type: Schema.ObjectId, ref: 'Unit' },
+    _unit: { type: Schema.ObjectId, ref: 'Unit', required: true },
     createdAt: { type: Date, required: true, default: Date.now() },
 });
 

@@ -5,7 +5,7 @@ const studentSchema = new Schema({
     name: { type: String, required: true },
     email: { type: String, required: true },
     ra: { type: String, required: true },
-    _room: { type: Schema.ObjectId, ref: 'Room' },
+    _room: { type: Schema.ObjectId, ref: 'Room', required: true },
     createdAt: { type: Date, required: true, default: Date.now() },
 });
 

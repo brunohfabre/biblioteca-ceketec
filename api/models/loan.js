@@ -2,8 +2,8 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
 const loanSchema = new Schema({
-    _student: { type: Schema.ObjectId, ref: 'Student' },
-    _book: { type: Schema.ObjectId, ref: 'Book' },
+    _student: { type: Schema.ObjectId, ref: 'Student', required: true },
+    _book: { type: Schema.ObjectId, ref: 'Book', required: true },
     start_date: { type: Date, required: true },
     end_date: { type: Date, required: true },
     status: { type: String, required: true },
