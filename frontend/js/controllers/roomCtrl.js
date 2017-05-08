@@ -1,4 +1,6 @@
-angular.module('app').controller('roomCtrl', function($scope, $http) {
+angular.module('app').controller('roomCtrl', function($scope, $http, $stateParams) {
+    $scope.unitId = $stateParams.unitId;
+
     var loadRoom = function() {
         $http.get('http://localhost:3003/api/rooms/').then(function (response) {
             $scope.rooms = response.data
@@ -12,7 +14,7 @@ angular.module('app').controller('roomCtrl', function($scope, $http) {
     };
 
     $scope.addRoom = function(room) {
-        $http.post('http://localhost:3003/api/rooms/', room).then(function (response) {
+        $http.post('http://localhost:3003/api/rooms/', angular.extend(room, {_unit: $stateParams.unitId})).then(function (response) {
             delete $scope.room;
             loadRoom();
         });

@@ -14,7 +14,7 @@ angular.module('app').config(function ($stateProvider, $urlRouterProvider, $loca
 		})
 
 		.state('room', {
-			url: '/room',
+			url: '/room/{unitId}',
 			templateUrl: 'views/room.html',
 			controller: 'roomCtrl'
 		})
