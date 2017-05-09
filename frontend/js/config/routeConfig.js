@@ -7,10 +7,10 @@ angular.module('app').config(function ($stateProvider, $urlRouterProvider, $loca
 			templateUrl: 'views/home.html'
 		})
 
-		.state('unit', {
-			url: '/unit',
-			templateUrl: 'views/unit.html',
-			controller: 'unitCtrl'
+		.state('units', {
+			url: '/units',
+			templateUrl: 'views/units.html',
+			controller: 'unitsCtrl'
 		})
 
 		.state('room', {
@@ -20,9 +20,15 @@ angular.module('app').config(function ($stateProvider, $urlRouterProvider, $loca
 		})
 
 		.state('student', {
-			url: '/student',
+			url: '/student/{roomId}',
 			templateUrl: 'views/student.html',
 			controller: 'studentCtrl'
+		})
+
+		.state('students', {
+			url: '/students',
+			templateUrl: 'views/students.html',
+			controller: 'studentsCtrl'
 		})
 
         .state('book', {
@@ -32,7 +38,7 @@ angular.module('app').config(function ($stateProvider, $urlRouterProvider, $loca
 		})
 
 		.state('loan', {
-			url: '/loan',
+			url: '/loan/{bookId}',
 			templateUrl: 'views/loan.html'
 		})
 

@@ -1,7 +1,7 @@
-angular.module('app').controller('roomCtrl', function($scope, $http, $stateParams) {
-    $scope.unitId = $stateParams.unitId;
+angular.module('app').controller('loanCtrl', function($scope, $http, $stateParams) {
+    $scope.bookId = $stateParams.bookId;
 
-    var loadRoom = function() {
+    var loadBook = function() {
         $http.get('http://localhost:3003/api/rooms/').then(function (response) {
             $scope.rooms = response.data
         });
@@ -10,12 +10,6 @@ angular.module('app').controller('roomCtrl', function($scope, $http, $stateParam
     var loadUnit = function() {
         $http.get('http://localhost:3003/api/units/').then(function (response) {
             $scope.units = response.data
-        });
-    };
-
-    var loadStudent = function() {
-        $http.get('http://localhost:3003/api/students/').then(function (response) {
-            $scope.students = response.data
         });
     };
 
@@ -34,5 +28,4 @@ angular.module('app').controller('roomCtrl', function($scope, $http, $stateParam
 
     loadRoom();
     loadUnit();
-    loadStudent();
 });

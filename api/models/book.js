@@ -6,6 +6,7 @@ const bookSchema = new Schema({
     edition: { type: String, required: true },
     author: { type: String, required: true },
     status: { type: String, required: true },
+    cover: { type: String, required: true },
     createdAt: { type: Date, required: true, default: Date.now() },
 });
 

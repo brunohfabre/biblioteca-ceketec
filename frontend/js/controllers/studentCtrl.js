@@ -1,4 +1,6 @@
-angular.module('app').controller('studentCtrl', function($scope, $http) {
+angular.module('app').controller('studentCtrl', function($scope, $http, $stateParams) {
+    $scope.roomId = $stateParams.roomId;
+
     var loadStudent = function() {
         $http.get('http://localhost:3003/api/students/').then(function (response) {
             $scope.students = response.data
@@ -12,7 +14,7 @@ angular.module('app').controller('studentCtrl', function($scope, $http) {
     };
 
     $scope.addStudent = function(student) {
-        $http.post('http://localhost:3003/api/students/', student).then(function (response) {
+        $http.post('http://localhost:3003/api/students/', angular.extend(student, {_room: $stateParams.roomId})).then(function (response) {
             delete $scope.student;
             loadStudent();
         });

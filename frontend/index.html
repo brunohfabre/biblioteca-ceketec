@@ -8,6 +8,8 @@
         <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/css/materialize.min.css">
 
+        <link rel="stylesheet" href="css/custom.css">
+
         <script type="text/javascript" src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
         <script src="lib/angular/angular.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/js/materialize.min.js"></script>
@@ -18,8 +20,11 @@
         <script src="js/app.js"></script>
         <script src="js/config/routeConfig.js"></script>
 
-        <script src="js/controllers/unitCtrl.js"></script>
+        <script src="js/controllers/unitsCtrl.js"></script>
         <script src="js/controllers/roomCtrl.js"></script>
+        <script src="js/controllers/studentCtrl.js"></script>
+        <script src="js/controllers/studentsCtrl.js"></script>
+        <script src="js/controllers/bookCtrl.js"></script>
     </head>
 
     <body>
@@ -27,14 +32,18 @@
             <div class="nav-wrapper">
                 <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
                 <div class="container">
-                    <a ui-sref="home" class="brand-logo">biblioteca-ceketec</a>
+                    <a ui-sref="home" class="brand-logo">Biblioteca Ceketec</a>
                     <ul class="right hide-on-med-and-down">
-                        <li><a ui-sref="home">home</a></li>
-                        <li><a ui-sref="unit">unit</a></li>
+                        <li><a ui-sref="home">Inicio</a></li>
+                        <li><a ui-sref="units">Unidades</a></li>
+                        <li><a ui-sref="students">Alunos</a></li>
+                        <li><a ui-sref="book">Livros</a></li>
                     </ul>
                     <ul class="side-nav" id="mobile-demo">
-                        <li><a ui-sref="home">home</a></li>
-                        <li><a ui-sref="unit">unit</a></li>
+                        <li><a ui-sref="home">Inicio</a></li>
+                        <li><a ui-sref="units">Unidades</a></li>
+                        <li><a ui-sref="students">Alunos</a></li>
+                        <li><a ui-sref="book">Livros</a></li>
                     </ul>
                 </div>
             </div>
