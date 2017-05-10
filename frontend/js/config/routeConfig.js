@@ -43,6 +43,12 @@ angular.module('app').config(function ($stateProvider, $urlRouterProvider, $loca
 			controller: 'loanCtrl'
 		})
 
+		.state('loans', {
+			url: '/loans',
+			templateUrl: 'views/loans.html',
+			controller: 'loansCtrl'
+		})
+
         .state('scheduling', {
 			url: '/scheduling',
 			templateUrl: 'views/scheduling.html'

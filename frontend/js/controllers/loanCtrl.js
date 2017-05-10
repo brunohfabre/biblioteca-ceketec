@@ -8,15 +8,16 @@ angular.module('app').controller('loanCtrl', function($scope, $http, $stateParam
     };
 
     $scope.addLoan = function(student) {
-        var startDate = new Date();
-        var endDate = startDate.setDate(startDate.getDate + 7);
+        var dataInicio = new Date();
+        $scope.startDate = new Date();
+        $scope.endDate = $scope.startDate.setDate($scope.startDate.getDate() + 7);
         var loan = {
             _student: student,
             _book: $stateParams.bookId,
-            start_date: startDate,
-            end_date: endDate,
+            start_date: dataInicio,
+            end_date:  $scope.endDate,
         };
-        $http.post('http://localhost:3003/api/loans/', student).then(function (response) {
+        $http.post('http://localhost:3003/api/loans/', loan).then(function (response) {
             loadStudent();
         });
     };
