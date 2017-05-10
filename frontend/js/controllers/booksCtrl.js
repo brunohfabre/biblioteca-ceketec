@@ -1,4 +1,4 @@
-angular.module('app').controller('bookCtrl', function($scope, $http) {
+angular.module('app').controller('booksCtrl', function($scope, $http) {
     var loadBook = function() {
         $http.get('http://localhost:3003/api/books/').then(function (response) {
             $scope.books = response.data

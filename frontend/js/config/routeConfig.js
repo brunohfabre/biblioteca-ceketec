@@ -13,10 +13,10 @@ angular.module('app').config(function ($stateProvider, $urlRouterProvider, $loca
 			controller: 'unitsCtrl'
 		})
 
-		.state('room', {
-			url: '/room/{unitId}',
-			templateUrl: 'views/room.html',
-			controller: 'roomCtrl'
+		.state('rooms', {
+			url: '/rooms/{unitId}',
+			templateUrl: 'views/rooms.html',
+			controller: 'roomsCtrl'
 		})
 
 		.state('student', {
@@ -31,15 +31,16 @@ angular.module('app').config(function ($stateProvider, $urlRouterProvider, $loca
 			controller: 'studentsCtrl'
 		})
 
-        .state('book', {
-			url: '/book',
-			templateUrl: 'views/book.html',
-			controller: 'bookCtrl'
+        .state('books', {
+			url: '/books',
+			templateUrl: 'views/books.html',
+			controller: 'booksCtrl'
 		})
 
 		.state('loan', {
 			url: '/loan/{bookId}',
-			templateUrl: 'views/loan.html'
+			templateUrl: 'views/loan.html',
+			controller: 'loanCtrl'
 		})
 
         .state('scheduling', {

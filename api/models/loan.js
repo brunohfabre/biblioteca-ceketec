@@ -6,7 +6,7 @@ const loanSchema = new Schema({
     _book: { type: Schema.ObjectId, ref: 'Book', required: true },
     start_date: { type: Date, required: true },
     end_date: { type: Date, required: true },
-    status: { type: String, required: true },
+    status: { type: String},
     createdAt: { type: Date, required: true, default: Date.now() },
 });
 

@@ -1,4 +1,4 @@
-angular.module('app').controller('roomCtrl', function($scope, $http, $stateParams) {
+angular.module('app').controller('roomsCtrl', function($scope, $http, $stateParams) {
     $scope.unitId = $stateParams.unitId;
 
     var loadRoom = function() {
