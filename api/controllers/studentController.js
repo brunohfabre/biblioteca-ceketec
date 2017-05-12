@@ -1,4 +1,5 @@
 const Student = require('../models/student');
+const Room = require('../models/room');
 
 const studentController = {};
 
@@ -12,7 +13,11 @@ studentController.get = function(req, res) {
 
 studentController.post = function(req, res) {
     Student.create(req.body).then(function(student) {
-        res.send(student);
+        Room.findByIdAndUpdate({_id: req.body._room}, { $push: { '_students': student._id }}).then(function(room_student) {
+            res.send(student);
+        }).catch(function(err) {
+            res.send(err);
+        });
     }).catch(function(err) {
         res.send(err);
     });

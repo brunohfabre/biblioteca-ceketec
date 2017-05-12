@@ -14,13 +14,13 @@ angular.module('app').config(function ($stateProvider, $urlRouterProvider, $loca
 		})
 
 		.state('rooms', {
-			url: '/rooms/{unitId}',
+			url: '/units/{unitId}/rooms',
 			templateUrl: 'views/rooms.html',
 			controller: 'roomsCtrl'
 		})
 
 		.state('student', {
-			url: '/student/{roomId}',
+			url: '/units/{unitId}/rooms/{roomId}/students',
 			templateUrl: 'views/student.html',
 			controller: 'studentCtrl'
 		})

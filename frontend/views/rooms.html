@@ -43,7 +43,7 @@
                                 <tr ng-repeat="room in rooms|filter: unitId">
                                     <td>{{room.name}}</td>
                                     <td>{{(students|filter: room._id).length}}</td>
-                                    <td><button class="btn red" ng-click="deleteRoom(room)">delete</button> <a ui-sref="student({roomId: room._id})" class="btn grey">adicionar aluno</a></td>
+                                    <td><button class="btn red" ng-click="deleteRoom(room)">delete</button> <a ui-sref="student({unitId: room._unit._id, roomId: room._id})" class="btn grey">adicionar aluno</a></td>
                                 </tr>
                             </tbody>
                         </table>

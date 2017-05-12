@@ -1,4 +1,6 @@
 const Room = require('../models/room');
+const Unit = require('../models/unit');
+const Student = require('../models/student');
 
 const roomController = {};
 
@@ -12,7 +14,11 @@ roomController.get = function(req, res) {
 
 roomController.post = function(req, res) {
     Room.create(req.body).then(function(room) {
-        res.send(room);
+        Unit.findByIdAndUpdate({_id: req.body._unit}, { $push: { '_rooms': room._id }}).then(function(unit_room) {
+            res.send(room);
+        }).catch(function(err) {
+            res.send(err);
+        });
     }).catch(function(err) {
         res.send(err);
     });
@@ -29,8 +35,12 @@ roomController.put = function(req, res) {
 };
 
 roomController.delete = function(req, res) {
-    Room.findByIdAndRemove({_id: req.params.id}).then(function(room) {
-        res.send(room);
+    Student.remove({_room: req.params.id}).then(function(student) {
+        Room.findByIdAndRemove({_id: req.params.id}).then(function(room) {
+            res.send(room);
+        }).catch(function(err) {
+            res.send(err);
+        });
     }).catch(function(err) {
         res.send(err);
     });
