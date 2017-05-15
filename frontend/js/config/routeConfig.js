@@ -49,9 +49,10 @@ angular.module('app').config(function ($stateProvider, $urlRouterProvider, $loca
 			controller: 'loansCtrl'
 		})
 
-        .state('scheduling', {
-			url: '/scheduling',
-			templateUrl: 'views/scheduling.html'
+        .state('schedulings', {
+			url: '/schedulings',
+			templateUrl: 'views/schedulings.html',
+			controller: 'schedulingsCtrl'
 		})
 
 		$urlRouterProvider.otherwise('/home')

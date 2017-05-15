@@ -3,7 +3,9 @@ const Schema = mongoose.Schema;
 
 const schedulingSchema = new Schema({
     _students: [{ type: Schema.ObjectId, ref: 'Student', required: true }],
-    date: { type: String, required: true },
+    date: { type: Date, required: true },
+    start_time: { type: String },
+    end_time: { type: String },
     createdAt: { type: Date, required: true, default: Date.now() },
 });
 
