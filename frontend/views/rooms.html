@@ -1,55 +1,43 @@
-<div class="container">
-    <div class="row">
-        <div class="col s12">
-            <h3>Salas ({{unitId}})</h3>
+<div class="mdl-grid">
+    <div class="mdl-cell mdl-cell--12-col">
+        <h3>Salas ({{unitId}})</h3>
+    </div>
+    <div class="mdl-cell mdl-cell--12-col">
+        <a ui-sref="units" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--colored">voltar</a>
+    </div>
+    <div class="mdl-cell mdl-cell--12-col mdl-card mdl-shadow--2dp">
+        <div class="mdl-card__supporting-text">
+            <form method="post" class="mdl-grid">
+                <div class="mdl-cell mdl-cell--10-col mdl-cell--1-offset-desktop mdl-cell--4-col-phone mdl-textfield mdl-js-textfield">
+                    <input class="mdl-textfield__input" type="text" id="name_unidade" ng-model="room.name" placeholder="Nome Sala">
+                </div>
+                <div class="mdl-cell mdl-cell--1-col mdl-cell--4-col-phone" align="right">
+                    <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--colored" ng-click="addRoom(room)">
+                        Adicinar
+                    </button>
+                </div>
+            </form>
         </div>
     </div>
-    <div class="row">
-        <div class="col s12">
-            <div class="card-panel">
-                <div class="row hide-on-med-and-down">
-                    <div class="col s12 m12">
-                        <a ui-sref="units" class="btn blue darken-3">voltar</a>
-                    </div>
-                </div>
-                <hr class="hide-on-med-and-down">
-                <div class="row">
-                    <form>
-                        <div class="input-field col s12 l6">
-                            <input placeholder="name" id="first_name" type="text" class="validate" ng-model="room.name">
-                        </div>
-                        <div class="input-field col s12 l2">
-                            <button class="btn green right" ng-click="addRoom(room)">adicionar</button>
-                        </div>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="row">
-        <div class="col s12">
-            <div class="card-panel">
-                <div class="row">
-                    <div class="col s12">
-                        <table class="striped">
-                            <thead>
-                                <tr>
-                                    <th>name</th>
-                                    <th>quantidade alunos</th>
-                                    <th>action</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr ng-repeat="room in rooms|filter: unitId">
-                                    <td>{{room.name}}</td>
-                                    <td>{{(students|filter: room._id).length}}</td>
-                                    <td><button class="btn red" ng-click="deleteRoom(room)">delete</button> <a ui-sref="student({unitId: room._unit._id, roomId: room._id})" class="btn grey">adicionar aluno</a></td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+    <table class="mdl-cell mdl-cell--12-col mdl-data-table mdl-js-data-table mdl-shadow--2dp">
+        <thead>
+            <tr>
+                <th class="mdl-data-table__cell--non-numeric">name</th>
+                <th>quantidade alunos</th>
+                <th>action</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr ng-repeat="room in rooms">
+                <td class="mdl-data-table__cell--non-numeric">{{room.name}}</td>
+                <td>{{(students|filter: room._id).length}}</td>
+                <td>
+                    <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" ng-click="deleteRoom(room)">
+                        remover
+                    </button>
+                    <a ui-sref="student({unitId: room._unit._id, roomId: room._id})" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--colored">adicionar alunos</a>
+                </td>
+            </tr>
+        </tbody>
+    </table>
 </div>

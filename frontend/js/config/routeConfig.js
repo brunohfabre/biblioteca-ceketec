@@ -56,4 +56,6 @@ angular.module('app').config(function ($stateProvider, $urlRouterProvider, $loca
 		})
 
 		$urlRouterProvider.otherwise('/home')
+
+		
 })
