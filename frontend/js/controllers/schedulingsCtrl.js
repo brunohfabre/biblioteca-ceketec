@@ -2,7 +2,6 @@ angular.module('app').controller('schedulingsCtrl', function($scope, $http, $sta
 
     var loadScheduling = function() {
         $http.get('http://localhost:3003/api/schedulings/').then(function (response) {
-            $scope.scheduling = {_students: [{}]};
             $scope.schedulings = response.data;
         });
     };
@@ -11,16 +10,6 @@ angular.module('app').controller('schedulingsCtrl', function($scope, $http, $sta
         $http.get('http://localhost:3003/api/students/').then(function (response) {
             $scope.students = response.data;
         });
-    };
-
-    $scope.addStudent = function(index) {
-        $scope.scheduling._students.splice(index + 1, 0, {});
-    };
-
-    $scope.deleteStudent = function(index) {
-        if ($scope.scheduling._students.length > 1) {
-            $scope.scheduling._students.splice(index, 1);
-        }
     };
 
     $scope.addScheduling = function(scheduling) {

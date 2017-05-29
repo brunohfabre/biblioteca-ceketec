@@ -14,23 +14,26 @@
                 </div>
                 <form>
                     <div class="row">
-                        <div class="input-field col s12 m6">
-                            <input placeholder="name" id="first_name" type="text" class="validate" ng-model="student.name">
+                        <div class="input-field col s12">
+                            <input id="student_name" type="text" ng-model="student.name">
+                            <label for="student_name">Nome</label>
                         </div>
                     </div>
                     <div class="row">
-                        <div class="input-field col s12 m6">
-                            <input placeholder="email" id="first_name" type="text" class="validate" ng-model="student.email">
+                        <div class="input-field col s12">
+                            <input id="student_email" type="text" ng-model="student.email">
+                            <label for="student_email">Nome Email</label>
                         </div>
                     </div>
                     <div class="row">
-                        <div class="input-field col s12 m6">
-                            <input placeholder="ra" id="first_name" type="text" class="validate" ng-model="student.ra">
+                        <div class="input-field col s12">
+                            <input id="student_ra" type="text" ng-model="student.ra">
+                            <label for="student_ra">RA</label>
                         </div>
                     </div>
                     <div class="row">
-                        <div class="input-field col s12 m6">
-                            <button class="btn green right" ng-click="addStudent(student)">adicionar</button>
+                        <div class="input-field col s12">
+                            <button class="waves-effect waves-light btn green darken-1 right" ng-click="addStudent(student)">adicionar</button>
                         </div>
                     </div>
                 </form>

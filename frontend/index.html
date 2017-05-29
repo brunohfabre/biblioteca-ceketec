@@ -6,14 +6,20 @@
 
         <title>biblioteca-ceketec</title>
 
-        <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-        <link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.blue_grey-red.min.css" />
-        <script defer src="https://code.getmdl.io/1.3.0/material.min.js"></script>
-        
+        <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/css/materialize.min.css">
+        <link rel="stylesheet" href="lib/clockpicker/css/materialize.clockpicker.css">
+
         <link rel="stylesheet" href="css/custom.css">
-        
+
+        <script type="text/javascript" src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
         <script src="lib/angular/angular.min.js"></script>
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/js/materialize.min.js"></script>
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular-materialize/0.2.2/angular-materialize.min.js"></script>
+        <script type="text/javascript" src="lib/clockpicker/js/materialize.clockpicker.js"></script>
+
         <script src="lib/angular/angular-ui-router.min.js"></script>
+
         <script src="js/app.js"></script>
         <script src="js/config/routeConfig.js"></script>
 
@@ -26,31 +32,39 @@
         <script src="js/controllers/loansCtrl.js"></script>
         <script src="js/controllers/schedulingsCtrl.js"></script>
 
-        
+
     </head>
 
-    <body>
-        <div class="mdl-layout mdl-js-layout mdl-layout--fixed-drawer mdl-layout--fixed-header">
-            <header class="mdl-layout__header">
-                <div class="mdl-layout__header-row">
-                    <span class="mdl-layout-title">Sistema Biblioteca</span>
+    <body class="grey lighten-4">
+        <nav>
+            <div class="nav-wrapper blue-grey">
+                <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
+                <div class="container">
+                    <a ui-sref="home" class="brand-logo">Sistema Biblioteca</a>
+                    <ul class="right hide-on-med-and-down">
+                        <li><a ui-sref="home">Inicio</a></li>
+                        <li><a ui-sref="units">Unidades</a>
+                        <li><a ui-sref="students">Alunos</a>
+                        <li><a ui-sref="schedulings">Agendamentos</a>
+                    </ul>
+                    <ul class="side-nav" id="mobile-demo">
+                        <li><a ui-sref="home">Inicio</a></li>
+                        <li><a ui-sref="units">Unidades</a>
+                        <li><a ui-sref="students">Alunos</a>
+                        <li><a ui-sref="schedulings">Agendamentos</a>
+                    </ul>
                 </div>
-            </header>
-            <div class="mdl-layout__drawer">
-                <nav class="mdl-navigation">
-                    <a class="mdl-navigation__link" ui-sref="home">Inicio</a>
-                    <a class="mdl-navigation__link" ui-sref="units">Unidades</a>
-                    <a class="mdl-navigation__link" ui-sref="students">Alunos</a>
-                    <a class="mdl-navigation__link" ui-sref="books">Livros</a>
-                    <a class="mdl-navigation__link" ui-sref="loans">Emprestimos</a>
-                    <a class="mdl-navigation__link" ui-sref="schedulings">Agendamentos</a>
-                </nav>
             </div>
-            <main class="mdl-layout__content mdl-color--grey-100">
-                <div class="page-content">
-                    <ui-view></ui-view>
-                </div>
-            </main>
-        </div>
+        </nav>
+
+        <ui-view></ui-view>
+
+        <script>
+            $(document).ready(function() {
+                $(".button-collapse").sideNav({
+                    closeOnClick: true
+                });
+            });
+        </script>
     </body>
 </html>
